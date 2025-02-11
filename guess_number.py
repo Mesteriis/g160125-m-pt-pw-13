@@ -21,7 +21,7 @@
 # соответственно.
 import random
 def guess_number():
-    secret_number = random.randint(0,100)
+    secret_number = random.randint(1,100)
     attempts = 6
     user_atempts = []
     print("Начинаем игру Угадай число с шести попыток")
@@ -35,6 +35,7 @@ def guess_number():
         user_atempts.append(guess)
         if guess == secret_number:
             print(f"Верно, это действительно {secret_number}")
+            print(f"вы угадали с {guess} попытки")
             print(f"я в шоке от твоей интуиции")
         elif guess < secret_number:
             print( f"задуманное число больше чем {guess}")

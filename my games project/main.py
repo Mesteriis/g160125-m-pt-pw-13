@@ -1,3 +1,5 @@
+from games import guess_number, hangman, minesweeper, quiz_game, rock_paper_scissors, text_adventure
+
 # Проект Game Hub
 #
 # Вам необходимо создать консольный чат-бот Game Hub, где пользователю доступны шесть игр.
@@ -8,7 +10,7 @@
 #
 def main():
     while True:
-        print("\\nДобро пожаловать в Game Hub!")
+        print("\nДобро пожаловать в Game Hub!")
         print("1. Угадай число")
         print("2. Камень, ножницы, бумага")
         print("3. Викторина")
@@ -16,7 +18,33 @@ def main():
         print("5. Текстовый квест")
         print("6. Сапер")
         print("7. Выход")
-        choice = input("Выберите игру (1-6): ")
+
+        choice = input("Выберите игру (1-7): ")
+
+        if choice == "1":
+            guess_number.start_guess_number()
+        elif choice == "2":
+            rock_paper_scissors.start_rock_paper_scissors()
+        elif choice == "3":
+            quiz_game.start_quiz_game()
+        elif choice == "4":
+            hangman.start_hangman()
+        elif choice == "5":
+            text_adventure.start_text_adventure()
+        elif choice == "6":
+            minesweeper.start_minesweeper()
+        elif choice == "7":
+            print("Выход из Game Hub. До свидания!")
+            break  # Добавляем выход из цикла
+        else:
+            print("Некорректный ввод. Попробуйте снова.")
+
+
+if __name__ == "__main__":
+    main()
+
+
+
 
         # допишите файл main.py в конце и протестируйте работоспособность всех игр.
 #

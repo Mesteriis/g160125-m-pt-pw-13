@@ -13,3 +13,44 @@
 # 4. Если игрок назвал неправильную букву, количество штрафных очков должно увеличиваться.
 # 5. Игра заканчивается победой, если все буквы слова угаданы, или проигрышем,
 # если количество штрафных очков достигает лимита (например, 6).
+
+import random
+
+words =  ["ананас", "интернет", "телефон", "алкоголь", "чайник" ]
+word = random.choice(words)
+
+correct_letters = set()
+incorrect_ans = 0
+corrects_ans = 0
+max_tries = 6
+
+print("Добро пожаловать в игру 'Виселица'! ")
+
+while incorrect_ans < max_tries:
+    display = ""
+    for letter in word:
+        if letter in correct_letters:
+            display += letter + " "
+        else:
+            display += "_ "
+    print("\nСлово:", display.strip())
+
+    guess = input("Введите букву (кириллица): ").lower()
+
+    if guess in correct_letters:
+        print("Вы уже вводили эту букву.")
+        continue
+
+    correct_letters.add(guess)
+
+    if guess not in word:
+        incorrect_ans += 1
+        print(f"Неправильно! Ошибок: {incorrect_ans} из {max_tries}")
+    else:
+        print("Правильно!")
+
+    if all(letter in correct_letters for letter in word):
+        print("Поздравляем! Вы угадали слово:", word)
+        break
+else:
+    print("Вы проиграли! Было загадано слово:", word)

@@ -42,7 +42,6 @@ def play_game():
 
         user_choice = item[user_choice - 1]
         computer_choice = get_computer_choice()
-        print(f"Компьютер выбрал: {computer_choice}")
 
         result = determine_winner(user_choice, computer_choice)
         if result == 1:
